@@ -1,5 +1,5 @@
 # Library
-Small-scale Library App Project from TOP
+### Small-scale Library App Project from TOP
 
 - The goal is to create a responsive app in JavaScript to add books into a virtual library
 - The library will store multiple parameters per book, stored as objects.
