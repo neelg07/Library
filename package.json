@@ -1,0 +1,24 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "Small Library App",
+  "main": "library.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neelg07/Library.git"
+  },
+  "keywords": [
+    "books",
+    "OOP",
+    "library"
+  ],
+  "author": "Neel Gandhi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neelg07/Library/issues"
+  },
+  "homepage": "https://github.com/neelg07/Library#readme"
+}
