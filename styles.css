@@ -12,10 +12,14 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    gap: 25px;
+
     min-width: 550px;
     width: 100%;
     height: 100vh;
     background-color: var(--cream);
+
+    position: relative;
 }
 
 .header {
@@ -41,4 +45,33 @@ body {
     height: 100%;
     padding: 0 50px 0 15px;
     min-width: 222px;
+}
+
+.add-book {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+.add-book button {
+    background: none;
+    border: none;
+
+    cursor: pointer;
+}
+
+.add-book button:hover {
+    transform: scale(1.05);
+}
+
+.add-book button:active {
+    transform: scale(1);
+}
+
+.add-icon {
+    filter: invert(99%) sepia(99%) saturate(411%) hue-rotate(299deg) brightness(83%) contrast(96%);
 }
