@@ -1,0 +1,41 @@
+* {
+    --beige-color: #ddd0c8;
+    --dark-gray: #323232;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-width: 550px;
+    background-color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15% 0 7%;
+    border-bottom: 1px solid black;
+    gap: 30px;
+    background-color: var(--beige-color);
+    min-width: 550px;
+}
+
+.title {
+    display: flex;
+    align-self: center;
+    font-size: larger;
+    min-width: 332px;
+}
+
+.log {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    height: 100%;
+    padding: 0 50px 0 15px;
+    min-width: 222px;
+}
