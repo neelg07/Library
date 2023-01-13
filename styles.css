@@ -116,13 +116,33 @@ form button {
 
 form div {
     display: grid;
-    grid-template: 1fr / 110px 1fr;
+    grid-template: 1fr / 120px 1fr;
     gap: 20px;
     
 }
 
 form div input {
-    width: 15rem;
+    width: auto;
+    height: 2rem;
+    font-size: 16px;
+    padding-left: 10px;
+    border-radius: 0.25rem;
+}
+
+input[type='text']:focus-visible,
+input[type='number']:focus-visible {
+    outline-offset: 0px;
+    outline: none;
+    outline-color: #80bdff; 
+    outline-style: initial;
+    outline-width: 0px;
+    
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+    border-color: #80bdff;
+}
+
+input:valid {
+    background-color: ivory;
 }
 
 input[type='number'] {
@@ -132,4 +152,9 @@ input[type='number'] {
 fieldset {
     display: flex;
     gap: 20px
+}
+
+input[type='radio']:focus-visible {
+    border: none;
+    outline: none;
 }
