@@ -17,3 +17,10 @@ function displayLibrary() {
 }
 
 displayLibrary();
+
+// Add book button
+const addBook = document.querySelector('.add-icon');
+
+addBook.addEventListener('click', () => {
+    // Popup form
+});
