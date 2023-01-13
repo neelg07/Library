@@ -1,6 +1,6 @@
 * {
     --beige-color: #ddd0c8;
-    --cream: #E8E3D6;
+    --cream: #e8e3d6;
     box-sizing: border-box;
 }
 
@@ -12,6 +12,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    align-content: center;
     gap: 25px;
 
     min-width: 550px;
@@ -63,8 +64,6 @@ body {
     border: none;
 
     cursor: pointer;
-
-    
 }
 
 .add-book button:hover {
@@ -76,5 +75,61 @@ body {
 }
 
 .add-icon {
-    filter: invert(99%) sepia(99%) saturate(711%) hue-rotate(299deg) brightness(78%) contrast(93%);
+    filter: invert(99%) sepia(99%) saturate(711%) hue-rotate(299deg)
+        brightness(78%) contrast(93%);
+}
+
+/** Book Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+    gap: 20px;
+    font-size: 20px;
+
+    width: 400px;
+}
+
+.bookform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    height: max(400px, 50%);
+    border-radius: 25px;
+
+    background-color: white;
+    padding: 30px;
+}
+
+.bookform h1 {
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+form button {
+    width: 150px;
+    margin: 0 auto;
+}
+
+form div {
+    display: grid;
+    grid-template: 1fr / 110px 1fr;
+    gap: 20px;
+    
+}
+
+form div input {
+    width: 15rem;
+}
+
+input[type='number'] {
+    width: 11ch;
+}
+
+fieldset {
+    display: flex;
+    gap: 20px
 }
