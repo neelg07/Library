@@ -6,18 +6,19 @@
 
 body {
     margin: 0;
-    min-width: 630px;
+    min-width: 770px;
+    min-height: 100vh;
+    overflow: auto;
+    background-color: var(--cream);
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    gap: 25px;
+    display: block;
 
     min-width: 550px;
+    min-height: 290px;
     width: 100%;
-    height: max(300px, 100vh);
+    height: 100vh;
 
     background-color: var(--cream);
 
@@ -152,7 +153,6 @@ form div {
     display: grid;
     grid-template: 1fr / 120px 1fr;
     gap: 20px;
-    
 }
 
 form div input {
@@ -167,10 +167,10 @@ input[type='text']:focus-visible,
 input[type='number']:focus-visible {
     outline-offset: 0px;
     outline: none;
-    outline-color: #80bdff; 
+    outline-color: #80bdff;
     outline-style: initial;
     outline-width: 0px;
-    
+
     box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
     border-color: #80bdff;
 }
@@ -185,7 +185,7 @@ input[type='number'] {
 
 fieldset {
     margin-top: 10px;
-    padding: 20px
+    padding: 20px;
 }
 
 #unread {
@@ -195,4 +195,10 @@ fieldset {
 input[type='radio']:focus-visible {
     border: none;
     outline: none;
+}
+
+@media (max-width: 770px) {
+    .bookform {
+        left: 20%;
+    }
 }
