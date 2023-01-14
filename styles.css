@@ -197,6 +197,14 @@ input[type='radio']:focus-visible {
     outline: none;
 }
 
+.inactive {
+    display: none;
+}
+
+.blur {
+    filter: blur(5px);
+}
+
 @media (max-width: 955px) {
     .bookform {
         left: 20%;
