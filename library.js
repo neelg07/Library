@@ -29,7 +29,7 @@ const pages = document.getElementById('pages');
 const readRadio = document.getElementById('read');
 const unreadRadio = document.getElementById('unread');
 
-// Add Book button
+// Add Book button func
 addBook.addEventListener('click', () => {
     // Popup form toggle
     bookForm.classList.toggle('inactive');
@@ -42,4 +42,12 @@ addBook.addEventListener('click', () => {
     unreadRadio.checked = false;
 
     title.focus();
+});
+
+// Close form button
+const closeForm = document.getElementById('close-btn');
+
+closeForm.addEventListener('click', () => {
+    //Close out form
+    bookForm.classList.toggle('inactive');
 });
