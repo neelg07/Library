@@ -1,12 +1,13 @@
 // Library App
-let myLibrary = ['Harry Potter', 'Apple Tree', 'Sample'];
+let myLibrary = [];
 
-function Book(title, author, pages, read) {
-    // constructor
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 function addBookToLibrary(obj) {
@@ -14,6 +15,7 @@ function addBookToLibrary(obj) {
     myLibrary.push(obj);
 }
 
+// Test function to show library in console
 function displayLibrary() {
     // Iterate array of books
     for (let book of myLibrary) {
@@ -57,18 +59,32 @@ closeForm.addEventListener('click', () => {
     bookForm.classList.toggle('inactive');
 });
 
-// Submit form --> Create new book object with form data
-formSubmit = document.querySelector('.submit-form');
-
-formSubmit.addEventListener('submit', (event) => {
-    // Save input values to variables
-    let title = titleInput.value;
-    let author = authorInput.value;
-    let pages = pagesInput.value;
-    let read; 
-    readRadio.checked ? read = true : read = false;
-    
-    // Create book obj
-    let newBook = new Book(title, author, pages, read); 
-    addBookToLibrary(newBook);
+// Submit form listener
+document.addEventListener('DOMContentLoaded', () => {
+    document
+        .getElementById('book-submit-form')
+        .addEventListener('submit', handleForm);
 });
+
+// function called on form submit
+function handleForm(ev) {
+    // stops page reload
+    ev.preventDefault();
+    let myForm = ev.target;
+    let dataObject = new FormData(myForm);
+
+    // Extract data from FormData obj
+    let title = dataObject.get('title');
+    let author = dataObject.get('author');
+    let pages = parseInt(dataObject.get('pages'));
+
+    //Convert string value into boolean
+    let read = dataObject.get('read') === 'true';
+
+    // Create book obj and add to myLibrary
+    let book = new Book(title, author, pages, read);
+    addBookToLibrary(book);
+
+    // Close form
+    closeForm.click();
+}
