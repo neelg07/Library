@@ -35,10 +35,21 @@ const pagesInput = document.getElementById('pages');
 const readRadio = document.getElementById('read');
 const unreadRadio = document.getElementById('unread');
 
+const bookCards = document.querySelectorAll('.card');
+
+// Blur function for book cards
+function backgroundBlur() {
+    bookCards.forEach((card) => {
+        card.classList.toggle('blur');
+    });
+}
+
 // Add Book button func
 addBook.addEventListener('click', () => {
     // Popup form toggle
     bookForm.classList.toggle('inactive');
+    // Blur background
+    backgroundBlur();
 
     // Reset input fields and set focus on title input
     titleInput.value = '';
@@ -56,6 +67,8 @@ const closeForm = document.getElementById('close-btn');
 closeForm.addEventListener('click', () => {
     //Close out form
     bookForm.classList.toggle('inactive');
+    //Toggle blur
+    backgroundBlur();
 });
 
 // Submit form listener
