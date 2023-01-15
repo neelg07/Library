@@ -11,7 +11,6 @@ class Book {
 }
 
 function addBookToLibrary(obj) {
-    //
     myLibrary.push(obj);
 }
 
@@ -87,4 +86,9 @@ function handleForm(ev) {
 
     // Close form
     closeForm.click();
+}
+
+// Create book card function (DOM Manipulation)
+function makeBookCard(book) {
+    // Todo
 }
