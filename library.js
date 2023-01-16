@@ -14,15 +14,22 @@ function addBookToLibrary(obj) {
     myLibrary.push(obj);
 }
 
-// Test function to show library in console
+// Show books in library array as cards on page
 function displayLibrary() {
-    // Iterate array of books
+    // Delete all old shown cards to avoid book repeats
+    deleteLibrary();
+    // Iterate array of book objects added
     for (let book of myLibrary) {
-        console.log(book);
+        addCardToGrid(book);
     }
 }
 
-displayLibrary();
+// Delete/Clear the Library Func
+function deleteLibrary() {
+    while (cardGrid.firstChild) {
+        cardGrid.removeChild(cardGrid.lastChild);
+    }
+}
 
 // Add book button
 const addBook = document.querySelector('.add-icon');
@@ -97,8 +104,9 @@ function handleForm(ev) {
     let book = new Book(title, author, pages, read);
     addBookToLibrary(book);
 
-    // Close form
+    // Close form and call displayLib func
     closeForm.click();
+    displayLibrary();
 }
 
 // Card Grid
