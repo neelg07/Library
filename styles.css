@@ -314,8 +314,6 @@ input:checked + .slider:before {
 
 .slider-text::after {
     content: "✔️";
-    font-size: large;
-    font-weight: bold;
     position: absolute;
     right: 95px;
     bottom: 15px;
