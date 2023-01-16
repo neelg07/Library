@@ -217,7 +217,7 @@ fieldset {
     border: 1px solid black;
     background-color: white;
     width: 350px;
-    height: fit-content;
+    height: max(254px, fit-content);
     padding: 10px;
     border-radius: 15px;
     position: relative;
