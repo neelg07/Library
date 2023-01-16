@@ -101,7 +101,105 @@ function handleForm(ev) {
     closeForm.click();
 }
 
+// Card Grid
+const cardGrid = document.querySelector('.card-grid');
+
 // Create book card function (DOM Manipulation)
-function makeBookCard(book) {
-    // Todo
+function addCardToGrid(book) {
+    cardGrid.appendChild(makeCardDiv(book));
 }
+
+// Make card
+function makeCardDiv(book) {
+    // Create parent node card div
+    let card = document.createElement('div');
+    card.classList.toggle('card');
+    // Add children nodes by calling funcs
+    addTitleCard(book, card);
+    addAuthorCard(book, card);
+    addPagesCard(book, card);
+    // Add div "slider-text" child node
+    let sliderText = document.createElement('div');
+    sliderText.classList.toggle('slider-text');
+    card.appendChild(sliderText);
+    // Add read/unread switch
+    addReadSwitch(book, card);
+
+    return card;
+}
+
+// Make title card div
+function addTitleCard(book, card) {
+    // Make title div
+    let titleCard = document.createElement('div');
+    titleCard.classList.toggle('title-card');
+    // Make h1
+    let titleHeader = document.createElement('h1');
+    titleHeader.textContent = book.title;
+    // Append h1 to div
+    titleCard.appendChild(titleHeader);
+    // Append div to card
+    card.appendChild(titleCard);
+}
+
+// Make author card div
+function addAuthorCard(book, card) {
+    // Author div
+    let authorCard = document.createElement('div');
+    authorCard.classList.toggle('author-card');
+    // Make h3
+    let authorHeader = document.createElement('h3');
+    authorHeader.textContent = 'Author:';
+    // Make p tag
+    let authorPara = document.createElement('p');
+    authorPara.textContent = book.author;
+    // Add child nodes to parent
+    authorCard.appendChild(authorHeader);
+    authorCard.appendChild(authorPara);
+    // Add author card to main card
+    card.appendChild(authorCard);
+}
+
+// Make pages card div
+function addPagesCard(book, card) {
+    // Page div
+    let pageCard = document.createElement('div');
+    pageCard.classList.toggle('pages-card');
+    // Make h3
+    let pageHeader = document.createElement('h3');
+    pageHeader.textContent = 'Pages:';
+    // Make p tag
+    let pagePara = document.createElement('p');
+    pagePara.textContent = book.pages;
+    // Add child nodes to parent
+    pageCard.appendChild(pageHeader);
+    pageCard.appendChild(pagePara);
+    // Add page div to main card
+    card.appendChild(pageCard);
+}
+
+// Func to add Read/Unread switch to card
+function addReadSwitch(book, card) {
+    // Label
+    let switchLabel = document.createElement('label');
+    switchLabel.classList.toggle('switch');
+    // Create and append input/span into label
+    let switchCheck = document.createElement('input');
+    switchCheck.classList.toggle('read-check');
+    switchCheck.type = 'checkbox';
+
+    let switchSpan = document.createElement('span');
+    switchSpan.classList.toggle('slider');
+    switchSpan.classList.toggle('round');
+    // Toggle checked or leave unchecked if read
+    book.read === true
+        ? (switchCheck.checked = true)
+        : (switchCheck.checked = false);
+    // Append input/span to label
+    switchLabel.appendChild(switchCheck);
+    switchLabel.appendChild(switchSpan);
+    // Append entire node into card
+    card.appendChild(switchLabel);
+}
+
+//Toggle card change with on/off read
