@@ -42,15 +42,6 @@ const pagesInput = document.getElementById('pages');
 const readRadio = document.getElementById('read');
 const unreadRadio = document.getElementById('unread');
 
-const bookCards = document.querySelectorAll('.card');
-
-// Blur function for book cards
-function backgroundBlur() {
-    bookCards.forEach((card) => {
-        card.classList.toggle('blur');
-    });
-}
-
 // Add Book button func
 addBook.addEventListener('click', () => {
     // Popup form toggle
@@ -210,4 +201,12 @@ function addReadSwitch(book, card) {
     card.appendChild(switchLabel);
 }
 
-//Toggle card change with on/off read
+//Toggle card change with on/off read and blur func
+const bookCards = cardGrid.childNodes;
+
+// Blur function for book cards
+function backgroundBlur() {
+    bookCards.forEach((card) => {
+        card.classList.toggle('blur');
+    });
+}
