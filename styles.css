@@ -317,10 +317,11 @@ input:checked + .slider:before {
 }
 
 .slider-text::after {
+    font-size: larger;
     content: "✔️";
     position: absolute;
-    right: 95px;
-    bottom: 15px;
+    right: 10px;
+    top: 10px;
 }
 
 /** .read for if book on card was read */
