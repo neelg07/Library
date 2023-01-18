@@ -22,6 +22,8 @@ function displayLibrary() {
     for (let book of myLibrary) {
         addCardToGrid(book);
     }
+    // Add event listeners to all read checkboxes (onclick func override)
+    addEventListeners();
 }
 
 // Delete/Clear the Library Func
@@ -69,7 +71,7 @@ closeForm.addEventListener('click', () => {
     backgroundBlur();
 });
 
-// Submit form listener
+// Submit form event listener
 document.addEventListener('DOMContentLoaded', () => {
     document
         .getElementById('book-submit-form')
@@ -117,9 +119,13 @@ function makeCardDiv(book) {
     addTitleCard(book, card);
     addAuthorCard(book, card);
     addPagesCard(book, card);
-    // Add div "slider-text" child node
+
+    // Add div "checkmark" child node; optional slider-text
     let sliderText = document.createElement('div');
-    sliderText.classList.toggle('slider-text');
+    sliderText.classList.toggle('checkmark');
+    if (book.read) {
+        sliderText.classList.toggle('slider-text');
+    }
     card.appendChild(sliderText);
     // Add read/unread switch
     addReadSwitch(book, card);
@@ -201,8 +207,22 @@ function addReadSwitch(book, card) {
     card.appendChild(switchLabel);
 }
 
-//Toggle card change with on/off read and blur func
+//Toggle card change with on/off read
 const bookCards = cardGrid.childNodes;
+const readCheckbox = document.getElementsByClassName('read-check');
+const checkmark = document.getElementsByClassName('checkmark');
+
+// Override click event listener for read checkbox
+function addEventListeners() {
+    // Iterate all checkboxes in each card in the library
+    for (let i = 0; i < readCheckbox.length; i++) {
+        readCheckbox[i].onclick = () => {
+            checkmark[i].classList.toggle('slider-text');
+            bookCards[i].classList.toggle('read');
+            console.log('worked');
+        };
+    }
+}
 
 // Blur function for book cards
 function backgroundBlur() {
