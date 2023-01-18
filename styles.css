@@ -35,6 +35,10 @@ body {
     min-width: 550px;
 }
 
+.book-icon:hover {
+    transform: scale(1.1);
+}
+
 .title {
     display: flex;
     align-self: center;
@@ -204,6 +208,12 @@ fieldset {
 @media (max-width: 955px) {
     .bookform {
         left: 20%;
+    }
+}
+
+@media (max-width: 885px) {
+    .book-icon {
+        margin-top: 20px;
     }
 }
 
