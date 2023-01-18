@@ -84,6 +84,11 @@ button:active {
         brightness(78%) contrast(93%);
 }
 
+.add-icon:hover {
+    transform: rotate(90deg);
+    transition-duration: 500ms;
+}
+
 /** Book Form */
 form {
     display: flex;
