@@ -227,6 +227,10 @@ fieldset {
     gap: 20px
 }
 
+.card:hover {
+    transform: scale(1.1);
+}
+
 .card div {
     display: flex;
     gap: 10px;
