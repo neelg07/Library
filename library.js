@@ -225,8 +225,11 @@ function addEventListeners() {
             myLibrary[i].read
                 ? (myLibrary[i].read = false)
                 : (myLibrary[i].read = true);
+            // Update log
+            updateLog(myLibrary);
         };
     }
+    updateLog(myLibrary);
 }
 
 // Blur function for book cards
@@ -234,4 +237,21 @@ function backgroundBlur() {
     bookCards.forEach((card) => {
         card.classList.toggle('blur');
     });
+}
+
+// Update log
+const librarySize = document.querySelector('.log h2');
+const readBooks = document.getElementById('read-books');
+const unreadBooks = document.getElementById('unread-books');
+
+function updateLog(library) {
+    librarySize.textContent = `Library Size: ${library.length}`;
+    let numRead = 0;
+    for (let book of library) {
+        if (book.read) {
+            numRead++;
+        }
+    }
+    readBooks.textContent = `# of Read Books: ${numRead}`;
+    unreadBooks.textContent = `# of Unread Books: ${library.length - numRead}`;
 }
