@@ -125,6 +125,7 @@ function makeCardDiv(book) {
     sliderText.classList.toggle('checkmark');
     if (book.read) {
         sliderText.classList.toggle('slider-text');
+        card.classList.toggle('read');
     }
     card.appendChild(sliderText);
     // Add read/unread switch

@@ -318,3 +318,10 @@ input:checked + .slider:before {
     right: 95px;
     bottom: 15px;
 }
+
+/** .read for if book on card was read */
+.read {
+    background: rgb(219,255,211);
+    background: linear-gradient(84deg, rgba(219,255,211,0.5564600840336135) 0%, rgba(128,247,175,1) 100%);
+    border: 1px solid green;
+}
