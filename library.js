@@ -218,9 +218,13 @@ function addEventListeners() {
     // Iterate all checkboxes in each card in the library
     for (let i = 0; i < readCheckbox.length; i++) {
         readCheckbox[i].onclick = () => {
+            // Toggle css classes
             checkmark[i].classList.toggle('slider-text');
             bookCards[i].classList.toggle('read');
-            console.log('worked');
+            // Update this.read book in myLibrary
+            myLibrary[i].read
+                ? (myLibrary[i].read = false)
+                : (myLibrary[i].read = true);
         };
     }
 }
