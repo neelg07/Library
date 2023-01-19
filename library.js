@@ -224,11 +224,13 @@ function addEditBtn(card) {
 const bookCards = cardGrid.childNodes;
 const readCheckbox = document.getElementsByClassName('read-check');
 const checkmark = document.getElementsByClassName('checkmark');
+const editBtn = document.getElementsByClassName('button-17');
 
 // Override click event listener for read checkbox
 function addEventListeners() {
     // Iterate all checkboxes in each card in the library
     for (let i = 0; i < readCheckbox.length; i++) {
+        // event listener for read/unread switch
         readCheckbox[i].onclick = () => {
             // Toggle css classes
             checkmark[i].classList.toggle('slider-text');
@@ -240,9 +242,41 @@ function addEventListeners() {
             // Update log
             updateLog(myLibrary);
         };
+        // event listener for edit btn
+        editBtn[i].onclick = () => {
+            openEditPage(myLibrary[i]);
+        };
     }
     updateLog(myLibrary);
 }
+
+// Edit form elements
+const editForm = document.querySelector('.editform');
+const editTitle = document.getElementById('edit-title');
+const editAuthor = document.getElementById('edit-author');
+const editPages = document.getElementById('edit-pages');
+const editSubmit = document.querySelector('.edit-submit');
+const removeBook = document.querySelector('.remove-book');
+const closeEdit = document.querySelector('.close-edit');
+
+// Func for Editing book cards
+function openEditPage(book) {
+    // Open form and blur background
+    editForm.classList.toggle('inactive');
+    backgroundBlur();
+    // Preset inputs to saved values
+    editTitle.value = book.title;
+    editAuthor.value = book.author;
+    editPages.value = book.pages;
+    // Focus title
+    editTitle.focus();
+}
+
+// Close edit modal
+closeEdit.addEventListener('click', () => {
+    editForm.classList.toggle('inactive');
+    backgroundBlur();
+})
 
 // Blur function for book cards
 function backgroundBlur() {
