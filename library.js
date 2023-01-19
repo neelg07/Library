@@ -120,7 +120,7 @@ function makeCardDiv(book) {
     addAuthorCard(book, card);
     addPagesCard(book, card);
 
-    // Add div "checkmark" child node; optional slider-text
+    // Add div "checkmark" child node; optional 'slider-text' class
     let sliderText = document.createElement('div');
     sliderText.classList.toggle('checkmark');
     if (book.read) {
@@ -128,6 +128,8 @@ function makeCardDiv(book) {
         card.classList.toggle('read');
     }
     card.appendChild(sliderText);
+    // Add edit btn
+    addEditBtn(card);
     // Add read/unread switch
     addReadSwitch(book, card);
 
@@ -206,6 +208,16 @@ function addReadSwitch(book, card) {
     switchLabel.appendChild(switchSpan);
     // Append entire node into card
     card.appendChild(switchLabel);
+}
+
+function addEditBtn(card) {
+    // create button
+    let edit = document.createElement('button');
+    edit.classList.add('button-17');
+    edit.setAttribute('role', 'button');
+    edit.textContent = 'Edit';
+    // Append as child
+    card.appendChild(edit);
 }
 
 //Toggle card change with on/off read
