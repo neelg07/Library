@@ -123,6 +123,15 @@ form {
     margin-bottom: 20px;
 }
 
+.editform {
+    height: 400px;
+}
+
+.editform h1 {
+    margin-top: -50px;
+    margin-bottom: 30px;
+}
+
 #close-btn {
     background: none;
     padding: 0;
@@ -423,4 +432,17 @@ input:checked + .slider:before {
 
 .checkmark {
     height: 50px;
+}
+
+/** Edit Div */
+.remove-book {
+    background-color: rgba(252, 63, 63, 0.925);
+    outline: transparent 1px rgb(136, 1, 1);
+    border: red;
+    color: black;
+    font-weight: bolder;
+}
+
+.edit-buttons {
+    margin-left: 35px;
 }
