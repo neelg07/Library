@@ -3,10 +3,19 @@ let myLibrary = [];
 
 class Book {
     constructor(title, author, pages, read) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
+        this.setTitle(title);
+        this.setAuthor(author);
+        this.setPages(pages);
         this.read = read;
+    }
+    setTitle(newTitle) {
+        this.title = newTitle;
+    }
+    setAuthor(newAuthor) {
+        this.author = newAuthor;
+    }
+    setPages(newPages) {
+        this.pages = newPages;
     }
 }
 
@@ -244,7 +253,7 @@ function addEventListeners() {
         };
         // event listener for edit btn
         editBtn[i].onclick = () => {
-            openEditPage(myLibrary[i]);
+            openEditPage(i);
         };
     }
     updateLog(myLibrary);
@@ -260,23 +269,32 @@ const removeBook = document.querySelector('.remove-book');
 const closeEdit = document.querySelector('.close-edit');
 
 // Func for Editing book cards
-function openEditPage(book) {
+function openEditPage(i) {
     // Open form and blur background
     editForm.classList.toggle('inactive');
     backgroundBlur();
     // Preset inputs to saved values
-    editTitle.value = book.title;
-    editAuthor.value = book.author;
-    editPages.value = book.pages;
+    editTitle.value = myLibrary[i].title;
+    editAuthor.value = myLibrary[i].author;
+    editPages.value = myLibrary[i].pages;
     // Focus title
     editTitle.focus();
+
+    // Ev listener for submit click
+    editSubmit.onclick = () => {
+        myLibrary[i].setTitle(editTitle.value);
+        myLibrary[i].setAuthor(editAuthor.value);
+        myLibrary[i].setPages(editPages.value);
+        closeEdit.click();
+        displayLibrary();
+    };
 }
 
 // Close edit modal
 closeEdit.addEventListener('click', () => {
     editForm.classList.toggle('inactive');
     backgroundBlur();
-})
+});
 
 // Blur function for book cards
 function backgroundBlur() {
