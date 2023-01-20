@@ -7,3 +7,5 @@
 - Also serves as a chance to get familiar with using the newly learned Node.js, nvm-windows, npm, packages such as ESLint, Prettier, and files such as .gitignore, package.json, etc.
 
 - Project will focus on short-term functionality as of right now, with the incorporation of a storage system in the backend at a later date. 
+
+------------------------------------------------------------------------------------------
