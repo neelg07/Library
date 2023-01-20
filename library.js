@@ -288,6 +288,11 @@ function openEditPage(i) {
         closeEdit.click();
         displayLibrary();
     };
+    removeBook.onclick = () => {
+        i === 0 ? myLibrary.shift() : myLibrary.splice(i, i);
+        closeEdit.click();
+        displayLibrary();
+    };
 }
 
 // Close edit modal
