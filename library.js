@@ -3,19 +3,28 @@ let myLibrary = [];
 
 class Book {
     constructor(title, author, pages, read) {
-        this.setTitle(title);
-        this.setAuthor(author);
-        this.setPages(pages);
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
         this.read = read;
     }
-    setTitle(newTitle) {
-        this.title = newTitle;
+    get title() {
+        return this._title;
     }
-    setAuthor(newAuthor) {
-        this.author = newAuthor;
+    set title(title) {
+        this._title = title;
     }
-    setPages(newPages) {
-        this.pages = newPages;
+    get author() {
+        return this._author;
+    }
+    set author(author) {
+        this._author = author;
+    }
+    get pages() {
+        return this._pages;
+    }
+    set pages(pages) {
+        this._pages = pages;
     }
 }
 
@@ -282,9 +291,9 @@ function openEditPage(i) {
 
     // Ev listener for submit click
     editSubmit.onclick = () => {
-        myLibrary[i].setTitle(editTitle.value);
-        myLibrary[i].setAuthor(editAuthor.value);
-        myLibrary[i].setPages(editPages.value);
+        myLibrary[i].title = editTitle.value;
+        myLibrary[i].author = editAuthor.value;
+        myLibrary[i].pages = editPages.value;
         closeEdit.click();
         displayLibrary();
     };
